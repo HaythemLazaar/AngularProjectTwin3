@@ -1,0 +1,27 @@
+
+.product-card{
+    margin: 0 1rem;
+}
+
+span{
+   float: right;
+}
+
+.product-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.purchase-btn{
+    float: right;
+}
+
+.products{
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

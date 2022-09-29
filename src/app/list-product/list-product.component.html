@@ -1,0 +1,28 @@
+<div class="product-list">
+  <h1>{{title}}</h1>
+  <div class="products">
+    <div class="product-card" *ngFor="let product of list" >
+      <div class="card" style="width: 18rem;">
+        <img src= {{product.picture}} class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{product.title}}</h5>
+          <p class="card-text">{{product.description}}</p>
+          <p class="card-text">Price :{{product.price}}</p>
+          <button class="btn btn-sm btn-danger" (click)="incrementLike(product)">
+            {{product.nbrLike}}
+          </button>
+          <button class="btn btn-sm btn-warning purchase-btn" 
+            (click)="buyProduct(product)"
+            [hidden]= "product.quantity == 0"
+            >
+            Add to Cart
+          </button>
+          <span *ngIf="product.quantity == 0">
+            Out of Stock
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
