@@ -20,8 +20,11 @@ span{
 
 .products{
     padding: 2rem;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+}
+
+.price-search{
+    margin-block: 2rem;
 }

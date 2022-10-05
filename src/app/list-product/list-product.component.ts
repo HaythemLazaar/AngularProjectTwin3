@@ -10,6 +10,7 @@ export class ListProductComponent implements OnInit {
 
   public title: String
   public list: Product[]
+  public priceMax: number = 100;
   constructor() { 
   }
 
