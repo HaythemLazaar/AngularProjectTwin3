@@ -5,12 +5,15 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { HomeComponent } from './home/home.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { ContactComponent } from './contact/contact.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const ROUTES: Routes=[
   {path:"product", component: ListProductComponent},
   {path:"user", component: ListUserComponent},
   {path:"home", component: HomeComponent},
-  {path:"contact", component: ContactComponent}
+  {path:"", component: HomeComponent},
+  {path:"contact", component: ContactComponent},
+  {path:"**", component: NotFoundComponent}
 ]
 
 @NgModule({
