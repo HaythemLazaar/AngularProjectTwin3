@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../model/product';
+import { Product } from '../../core/model/product';
 
 @Component({
   selector: 'app-list-product',
@@ -10,7 +10,7 @@ export class ListProductComponent implements OnInit {
 
   public title: String
   public list: Product[]
-  public priceMax: number = 10000;
+  public priceMax: number;
   constructor() { 
   }
 
