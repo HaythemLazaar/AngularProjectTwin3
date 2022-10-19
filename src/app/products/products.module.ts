@@ -5,12 +5,16 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { ListProductComponent } from './list-product/list-product.component';
 import { FormsModule } from '@angular/forms';
+import { FormProductComponent } from './form-product/form-product.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
   declarations: [
     ProductsComponent,
-    ListProductComponent
+    ListProductComponent,
+    FormProductComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,

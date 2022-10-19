@@ -1,6 +1,6 @@
 
 .product-card{
-    margin: 0 1rem;
+    margin: 1rem;
 }
 
 span{
@@ -20,10 +20,11 @@ span{
 
 .products{
     padding: 2rem;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-}
+    max-width: 100%;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+} 
 
 .price-search{
     margin-block: 2rem;

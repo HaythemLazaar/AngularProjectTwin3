@@ -11,8 +11,8 @@ const ROUTES: Routes=[
   {path:"home", component: HomeComponent},
   {path:"", component: HomeComponent},
   {path:"contact", component: ContactComponent},
-  {path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
-  {path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+  {path: 'product', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
+  {path: 'user', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
   {path:"**", component: NotFoundComponent}
 ]
 
