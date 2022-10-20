@@ -11,14 +11,15 @@ export class ListProductComponent implements OnInit {
 
   public title: String
   public list: Product[]
+  public all: Product[]
   public priceMax: number;
+
   constructor(private route: ActivatedRoute) { 
   }
 
   ngOnInit(): void {
-    let category = this.route.snapshot.paramMap.get('category')
     this.title = "My App Store"
-    this.list = [
+    this.all = [
       {
         id: 1,
         title: 'T-Shirt 1',
@@ -61,11 +62,18 @@ export class ListProductComponent implements OnInit {
       }
     ]
 
-    if(category != null){
-      this.list = this.list.filter( p => 
-        p.category == category
-      )
-    }
+    this.route.params.subscribe(
+      (params) => {
+        if(params['category'] != null){
+          this.list = this.all.filter(pr => pr.category == params['category'] )
+          console.log(params['category'])
+        }
+        else{
+          this.list = this.all
+        }
+        console.log(this.list)
+      }
+    )
     
   }
   incrementLike(product: Product): void{

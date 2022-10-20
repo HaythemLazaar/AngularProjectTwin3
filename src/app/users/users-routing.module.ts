@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: UsersComponent,
     children:[
       { path: 'list', component: ListUserComponent},
-      { path:':user', component: ProfileComponent }
+      { path:'list/profile/:user', component: ProfileComponent }
     ]
 }
 ];
