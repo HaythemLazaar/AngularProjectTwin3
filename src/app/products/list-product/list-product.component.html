@@ -8,8 +8,8 @@
     placeholder="Search by price"
     >
   </form>
-  <div class="alert alert-danger out-of-stock">
-    {{count}} products out of stock.
+  <div class="alert alert-danger out-of-stock" *ngIf="count != 0">
+    {{count}} products out of stock. <a routerLink="/product/outofstock">More Details...</a>
   </div>
   <div class="products">
     <div *ngFor="let product of list">

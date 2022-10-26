@@ -7,6 +7,8 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { FormsModule } from '@angular/forms';
 import { FormProductComponent } from './form-product/form-product.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AdminProductComponent } from './admin-product/admin-product.component';
+import { AdminProductUpdateComponent } from './admin-product-update/admin-product-update.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ProductsComponent,
     ListProductComponent,
     FormProductComponent,
-    SidebarComponent
+    SidebarComponent,
+    AdminProductComponent,
+    AdminProductUpdateComponent
   ],
   imports: [
     CommonModule,

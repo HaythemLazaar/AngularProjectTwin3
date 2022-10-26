@@ -1,0 +1,27 @@
+.product-admin-table{
+    border: 1px solid black;
+    border-bottom: none;
+    border-right: none;
+    display: grid;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.product-table-row{
+    border-bottom: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(7, 150px);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.product-table-column{
+    border-right: 1px solid black;
+    padding: 1rem;
+}
+
+.product-actions{
+    display: flex;
+    grid-area: 1 / 7 / 2 / 9;
+    gap: 5px;
+}

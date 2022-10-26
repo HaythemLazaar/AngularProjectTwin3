@@ -1,0 +1,23 @@
+<div class="product-admin-table">
+    <div class="product-table-row">
+        <div class="product-table-column">Product</div>
+        <div class="product-table-column">Price</div>
+        <div class="product-table-column">Likes</div>
+        <div class="product-table-column">Description</div>
+        <div class="product-table-column">Category</div>
+        <div class="product-table-column">Quantity</div>
+        <div class="product-table-column product-actions">Action</div>
+    </div>
+    <div class="product-table-row" *ngFor="let product of outOfStock">
+        <div class="product-table-column">{{product.title}}</div>
+        <div class="product-table-column">{{product.price}}</div>
+        <div class="product-table-column">{{product.nbrLike}}</div>
+        <div class="product-table-column">{{product.description}}</div>
+        <div class="product-table-column">{{product.category}}</div>
+        <div class="product-table-column">{{product.quantity}}</div>
+        <div class="product-table-column product-actions">
+            <div class="btn btn-warning">Update</div>
+            <div class="btn btn-danger" (click)="deleteProduct(product)">Delete</div>
+        </div>
+    </div>
+</div>
