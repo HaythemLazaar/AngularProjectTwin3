@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { StatsService } from 'src/app/core/services/stats.service';
 import { Product } from '../../core/model/product';
 
 @Component({
@@ -13,8 +14,9 @@ export class ListProductComponent implements OnInit {
   public list: Product[]
   public all: Product[]
   public priceMax: number;
+  public count: number
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private route: ActivatedRoute, private stats: StatsService) { 
   }
 
   ngOnInit(): void {
@@ -59,9 +61,33 @@ export class ListProductComponent implements OnInit {
         category: 'women',
         picture: 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f88c38f6-5eb3-4cd8-a509-08b59410875b/tee-shirt-sportswear-club-pour-bVD3j8.png',
         quantity: 15
+      },
+      {
+        id: 5,
+        title: 'T-Shirt 4',
+        price: 120,
+        nbrLike: 20,
+        description: 'Cool T-shirt',
+        category: 'women',
+        picture: 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f88c38f6-5eb3-4cd8-a509-08b59410875b/tee-shirt-sportswear-club-pour-bVD3j8.png',
+        quantity: 0
+      },
+      {
+        id: 6,
+        title: 'T-Shirt 4',
+        price: 120,
+        nbrLike: 20,
+        description: 'Cool T-shirt',
+        category: 'women',
+        picture: 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f88c38f6-5eb3-4cd8-a509-08b59410875b/tee-shirt-sportswear-club-pour-bVD3j8.png',
+        quantity: 0
       }
     ]
 
+    // Out of stock Count
+    this.count = this.stats.getCount(this.all,'quantity',0)
+
+    // Detect change in category
     this.route.params.subscribe(
       (params) => {
         if(params['category'] != null){

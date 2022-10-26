@@ -8,6 +8,9 @@
     placeholder="Search by price"
     >
   </form>
+  <div class="alert alert-danger out-of-stock">
+    {{count}} products out of stock.
+  </div>
   <div class="products">
     <div *ngFor="let product of list">
       <div class="product-card" *ngIf="product.price <= priceMax || priceMax==null">

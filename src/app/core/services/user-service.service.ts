@@ -42,7 +42,8 @@ public getUsers(): User[]{
 }
 
 public getUserByID(userId: number){
-  return this.usersList.find(user => user.id == userId) || {id: 2,
+  return this.usersList.find(user => user.id == userId) || {
+    id: 0,
     name: '',
     job: '',
     phone: '',
