@@ -78,4 +78,9 @@ export class ProductService {
     let i = this.productList.indexOf(product)
     if(i!=-1) this.productList.splice(i,1)
   }
+
+  public addProduct(product: Product): void{
+    this.productList.push(product)
+    console.log(this.productList)
+  }
 }

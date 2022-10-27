@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Product } from 'src/app/core/model/product';
+import { ProductService } from 'src/app/core/services/product.service';
 
 @Component({
   selector: 'app-form-product',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormProductComponent implements OnInit {
 
-  constructor() { }
+  public newProduct: Product
+  constructor(private product: ProductService, private route: Router) { }
 
   ngOnInit(): void {
+    this.newProduct = new Product()
   }
 
+  addProduct(){
+    this.product.addProduct(this.newProduct)
+    console.log("product added")
+    this.route.navigate(["product/list"])
+  }
 }
