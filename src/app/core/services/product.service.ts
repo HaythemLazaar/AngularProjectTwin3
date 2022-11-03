@@ -74,6 +74,10 @@ export class ProductService {
     return this.productList
   }
 
+  public getProductById(id: number): Product{
+    return this.productList[this.productList.findIndex( p => p.id == id)]
+  }
+
   public deleteProduct(product: Product): void{
     let i = this.productList.indexOf(product)
     if(i!=-1) this.productList.splice(i,1)
@@ -82,5 +86,11 @@ export class ProductService {
   public addProduct(product: Product): void{
     this.productList.push(product)
     console.log(this.productList)
+  }
+
+  public updateProduct(product: Product): void{
+    if(this.productList.includes(product)){
+      this.productList[this.productList.indexOf(product)] = product
+    }else this.addProduct(product)
   }
 }

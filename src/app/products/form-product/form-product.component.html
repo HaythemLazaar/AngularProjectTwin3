@@ -1,21 +1,47 @@
-<h1>Add a Product :</h1> 
-<form (ngSubmit)="addProduct()">
-    <div class="form-group col-md-6">
-        <label>Title :</label><input type="text" [(ngModel)]="newProduct.title" name="title" placeholder="Product Title" class="form-control">
+<h1>{{title}}</h1>
+<form #f="ngForm">
+  <div class="form-group col-md-6">
+    <label>Title</label>
+    <input type="text" [(ngModel)]="product.title" placeholder={{product.title}} name="title"
+    class="form-control" required minlength="3" pattern="[a-zA-Z]{3,12}$"
+     #t="ngModel">
+    <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+        <div *ngIf="t.hasError('required')">this field is required</div>
+        <div *ngIf="t.hasError('minlength')">minlength = 3!</div>
+        <div *ngIf="t.hasError('pattern')">error pattern</div>
     </div>
-    <div class="form-group col-md-6">
-        <label>Price :</label><input type="number" [(ngModel)]="newProduct.price" name="price" placeholder="Product Title" class="form-control">
+  </div>
+
+  <div class="form-group col-md-6">
+    <label>price</label>
+    <input type="number" #p="ngModel" [(ngModel)]="product.price"name="price" class="form-control" required>
+    <div *ngIf="p.invalid && p.touched" class="alert alert-danger">
+      this field is required
     </div>
-    <div class="form-group col-md-6">
-        <label>Quantity :</label><input type="number" [(ngModel)]="newProduct.quantity" name="quantity" placeholder="Product Title" class="form-control">
+  </div>
+
+  <div class="form-group col-md-6">
+    <label>quantity</label>
+    <input type="number" [(ngModel)]="product.quantity" #qt="ngModel" name="quantity" required class="form-control" required>
+    <div class="alert alert-danger" *ngIf="qt.value<0">
+      alert negatif !!!
     </div>
-    <div class="form-group col-md-6">
-        <label>Picture :</label><input type="number" [(ngModel)]="newProduct.picture" name="picture" placeholder="Product Title" class="form-control">
-    </div>
-    <div class="form-group col-md-6">
-        <label>Description :</label><textarea type="text" [(ngModel)]="newProduct.description" name="description" placeholder="Product Title" class="form-control"></textarea>
-    </div>
-    <div class="form-group col-md-6">
-        <button type="submit" class="btn btn-warning" >Add Product</button>
-    </div>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Picture</label>
+    <input type="text" [(ngModel)]="product.picture" name="picture" class="form-control">
+  </div>
+  <div class="form-group col-md-6">
+    <label>nbLike</label>
+    <input type="number" [(ngModel)]="product.nbrLike" name="nbrLike" required class="form-control">
+  </div>
+  <br>
+  <button class="btn btn-success" (click)="addProduct()"
+  [disabled]="f.invalid">
+    save
+  </button>
+  &nbsp;
+  <button type="reset" class="btn btn-warning">
+    reset
+  </button>
 </form>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/core/model/product';
 import { ProductService } from 'src/app/core/services/product.service';
 
@@ -10,16 +10,33 @@ import { ProductService } from 'src/app/core/services/product.service';
 })
 export class FormProductComponent implements OnInit {
 
-  public newProduct: Product
-  constructor(private product: ProductService, private route: Router) { }
+  public product: Product
+  public title: String
+  public action: String
+  constructor(private productService: ProductService, private route: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.newProduct = new Product()
+    this.product = new Product()
+    this.action = this.activatedRoute.snapshot.params['action']
+    if(this.action.includes("update")){
+      this.title = "Update a Product"
+      if(this.action.length > 6){
+        let updateProductId: number = parseInt(this.action.slice(7),10)
+        this.product = this.productService.getProductById(updateProductId)
+      }
+    }else this.title = "Add a new Product"
   }
 
   addProduct(){
-    this.product.addProduct(this.newProduct)
-    console.log("product added")
+    if(this.action.includes("update")) {
+      this.productService.updateProduct(this.product)
+      console.log("product updated")
+    }
+    else {
+      this.productService.addProduct(this.product)
+      console.log("product added")
+    } 
     this.route.navigate(["product/list"])
   }
+
 }
