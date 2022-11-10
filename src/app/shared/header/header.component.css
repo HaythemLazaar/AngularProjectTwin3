@@ -1,3 +1,13 @@
 .logo{
     max-width: 60px;
 }
+
+.navi{
+    width: 100%;
+}
+
+.login{
+    justify-self: flex-end;
+    align-self: flex-end;
+    float: right;
+}

@@ -29,14 +29,21 @@ export class FormProductComponent implements OnInit {
 
   addProduct(){
     if(this.action.includes("update")) {
-      this.productService.updateProduct(this.product)
-      console.log("product updated")
+      this.productService.updateProduct(this.product).subscribe(
+        () => this.route.navigate(["product/list"]),
+        () => console.log('error'),
+        () => console.log("product updated")
+      )
+      
     }
     else {
-      this.productService.addProduct(this.product)
-      console.log("product added")
+      this.productService.addProduct(this.product).subscribe(
+        () => this.route.navigate(["product/list"]), 
+        () => console.log('error'),
+        () => console.log("product added")
+      )
     } 
-    this.route.navigate(["product/list"])
+    
   }
 
 }

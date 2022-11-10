@@ -1,10 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Product } from '../model/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  public URI = environment.URI + 'products/'
   private productList: Product[] = [
     {
       id: 1,
@@ -12,7 +15,7 @@ export class ProductService {
       price: 300,
       nbrLike: 22,
       description: 'No need to journey into the jungle for their next pair of kicks. Free your child\'s wild side with a lively animal print. Hear them roar! Get yourself a matching pair with the Women\'s Air Jordan 11 Retro.',
-      category: 'men',
+      category: 'kids',
       picture: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/e8014cc7-306a-41d8-9842-17b83de8f5e1/jordan-11-retro-little-kids-shoes-HlkH9p.png',
       quantity: 2
     },
@@ -68,10 +71,12 @@ export class ProductService {
     }
   ]
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ){}
 
-  public getProducts(): Product[]{
-    return this.productList
+  public getProducts(){
+    return this.http.get<Product[]>(this.URI)
   }
 
   public getProductById(id: number): Product{
@@ -79,18 +84,14 @@ export class ProductService {
   }
 
   public deleteProduct(product: Product): void{
-    let i = this.productList.indexOf(product)
-    if(i!=-1) this.productList.splice(i,1)
+    this.http.delete(this.URI+product.id)
   }
 
-  public addProduct(product: Product): void{
-    this.productList.push(product)
-    console.log(this.productList)
+  public addProduct(product: Product){
+    return this.http.post(this.URI, product)
   }
 
-  public updateProduct(product: Product): void{
-    if(this.productList.includes(product)){
-      this.productList[this.productList.indexOf(product)] = product
-    }else this.addProduct(product)
+  public updateProduct(product: Product){
+    return this.http.put(this.URI, product)
   }
 }

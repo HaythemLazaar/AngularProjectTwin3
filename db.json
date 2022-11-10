@@ -1,0 +1,35 @@
+{  "products": [
+    {
+      "id": 7,
+      "title": "T-Shirt 7",
+      "price": 120,
+      "nbrLike": 20,
+      "description": "Cool T-shirt 2",
+      "category": "kids",
+      "picture": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f88c38f6-5eb3-4cd8-a509-08b59410875b/tee-shirt-sportswear-club-pour-bVD3j8.png",
+      "quantity": 0
+     },
+    {
+      "id": 8,
+      "title": "T-Shirt 8",
+      "price": 40,
+      "nbrLike": 15,
+      "description": "Cool T-shirt 3",
+      "category": "women",
+      "picture": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f88c38f6-5eb3-4cd8-a509-08b59410875b/tee-shirt-sportswear-club-pour-bVD3j8.png",
+      "quantity": 10
+    },
+    {
+      "id": 1,
+      "title": "Jordan 11 Retro",
+      "price": 300,
+      "nbrLike": 22,
+      "description": "No need to journey into the jungle for their next pair of kicks. Free your child's wild side with a lively animal print. Hear them roar! Get yourself a matching pair with the Women's Air Jordan 11 Retro.",
+      "category": "kids",
+      "picture": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/e8014cc7-306a-41d8-9842-17b83de8f5e1/jordan-11-retro-little-kids-shoes-HlkH9p.png",
+      "quantity": 2
+    }
+    ],
+  "users": []
+
+}

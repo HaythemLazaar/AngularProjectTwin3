@@ -22,7 +22,12 @@ export class ListProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.title = "My App Store"
-    this.all = this.products.getProducts()
+
+    // Retrieve data
+    this.products.getProducts().subscribe( 
+      (data: Product[]) => {
+        this.all = data
+    })
 
     // Out of stock Count
     this.count = this.stats.getCount(this.all,'quantity',0)
